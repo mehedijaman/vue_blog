@@ -15,6 +15,7 @@ if(baseUrl.value == null || baseUrl.value == ''){
 function changeAPI(){
   localStorage.setItem('baseUrl', baseUrl.value)
   showModal.value = false
+  fetchCategories()
 }
 
 async function fetchCategories(){
