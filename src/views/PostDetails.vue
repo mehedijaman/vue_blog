@@ -2,16 +2,16 @@
 import {ref} from 'vue'
 import { useRoute } from 'vue-router';
 import axios from 'axios'
-import {
-  Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle
-} from 'flowbite-vue'
+
+const baseUrl = ref(localStorage.getItem('baseUrl'))
 
 const route = useRoute()
 const postId = route.query.id
-const url = `https://mehedipata.com/wp-json/wp/v2/posts/${postId}`
+
 const post = ref({})
 
 async function postDetails(){
+    const url = `${baseUrl.value}/posts/${postId}`
     const res = await axios.get(url)
     Object.assign(post.value, res.data)
 }

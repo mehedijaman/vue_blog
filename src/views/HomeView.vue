@@ -7,10 +7,11 @@ import {
 } from 'flowbite-vue'
 
 const posts = ref({})
+let baseUrl = ref(localStorage.getItem('baseUrl'))
 
 async function fetchPosts(){
   try {
-    const url = 'https://mehedipata.com/wp-json/wp/v2/posts'
+    const url = `${baseUrl.value}/posts`
     const res = await axios.get(url)
     Object.assign(posts.value,res.data)
   } catch (error) {

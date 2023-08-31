@@ -1,15 +1,10 @@
 <template>
   <div class="about">
-    <h1>This is an Contact page</h1>
+    
+    <h1 class="text-center font-bold">mail4mjaman@gmail.com</h1>
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>

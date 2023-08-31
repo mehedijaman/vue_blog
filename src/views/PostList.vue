@@ -7,13 +7,15 @@ import {
   Button
 } from 'flowbite-vue'
 
+const baseUrl = ref(localStorage.getItem('baseUrl'))
+
 const route = useRoute()
 const posts = reactive({})
 
 async function fetchPosts(){
   try { 
     const categoryId = route.query.categories
-    const url = `https://mehedipata.com/wp-json/wp/v2/posts?categories=${categoryId}` 
+    const url = `${baseUrl.value}/posts?categories=${categoryId}` 
     const res = await axios.get(url)     
     Object.assign(posts,res.data)
 
