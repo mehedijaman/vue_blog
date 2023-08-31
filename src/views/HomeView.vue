@@ -2,8 +2,7 @@
 import {ref} from 'vue'
 import axios from 'axios'
 import {
-  Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle,
-  Button
+  Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle
 } from 'flowbite-vue'
 
 const posts = ref({})
@@ -14,10 +13,17 @@ async function fetchPosts(){
     const url = `${baseUrl.value}/posts`
     const res = await axios.get(url)
     Object.assign(posts.value,res.data)
+
+    posts
+
   } catch (error) {
     console.log(error)
     return []
   }
+}
+
+async function getFaturedImage(posts){
+
 }
 
 fetchPosts()
@@ -25,7 +31,7 @@ fetchPosts()
 
 <template>
   <div class="p-5 text-center bg-gray-100 mb-5 text-red-800 rounded-md" >
-    <span class="font-bold">WVuer</span> is a simple app built with Vue JS and Tailwind CSS that displays posts from a WordPress REST API endpoint. <br> Made with Passion by <a href="https://linkedin.com/in/mehedijaman" target="_blank" class="text-blue-900">Mehedi Jaman</a>. Get the Source code from <a href="https//github.com/mehedijaman/wvuer.git" target="_blank" class="text-blue-900">Github</a>
+    <span class="font-bold">WPVuer</span> is a simple app built with Vue JS and Tailwind CSS that displays posts from a WordPress REST API endpoint. <br> Made with Passion by <a href="https://linkedin.com/in/mehedijaman" target="_blank" class="text-blue-900">Mehedi Jaman</a>. Get the Source code from <a href="https//github.com/mehedijaman/wvuer.git" target="_blank" class="text-blue-900">Github</a>
   </div>
   <Timeline>
     <timeline-item v-for="(post, index) in posts" :key="index" class="bg-gray-50 p-5  rounded-md">
@@ -41,7 +47,7 @@ fetchPosts()
         </timeline-time>
         <timeline-body>
           <div class="flex flex-col gap-10">
-            <img class="h-96" src="https://images.unsplash.com/photo-1682687982046-e5e46906bc6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="">
+            <!-- <img class="h-96" src="https://images.unsplash.com/photo-1682687982046-e5e46906bc6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt=""> -->
             <div v-html="post.excerpt.rendered"></div>
           </div>
 
