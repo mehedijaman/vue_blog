@@ -24,6 +24,9 @@ fetchPosts()
 </script>
 
 <template>
+  <div class="p-5 text-center bg-gray-100 mb-5 text-red-800 rounded-md" >
+    <span class="font-bold">WVuer</span> is a simple app built with Vue JS and Tailwind CSS that displays posts from a WordPress REST API endpoint. <br> Made with Passion by <a href="https://linkedin.com/in/mehedijaman" target="_blank" class="text-blue-900">Mehedi Jaman</a>. Get the Source code from <a href="https//github.com/mehedijaman/wvuer.git" target="_blank" class="text-blue-900">Github</a>
+  </div>
   <Timeline>
     <timeline-item v-for="(post, index) in posts" :key="index" class="bg-gray-50 p-5  rounded-md">
       <timeline-point>

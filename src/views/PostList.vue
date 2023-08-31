@@ -4,7 +4,6 @@ import axios from 'axios'
 import { useRoute } from 'vue-router';
 import {
   Timeline, TimelineItem, TimelinePoint, TimelineTime, TimelineContent, TimelineTitle,
-  Button
 } from 'flowbite-vue'
 
 const baseUrl = ref(localStorage.getItem('baseUrl'))
