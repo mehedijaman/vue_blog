@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const HomeView = () => import('../views/HomeView.vue')
-const PostDetails = () => import('../views/PostDetails.vue')
+const PostDetails = () => import('../components/PostDetails.vue')
 const ContactView = () => import('../views/ContactView.vue')
 const PostList = () => import('../views/PostList.vue')
 
