@@ -2,7 +2,7 @@
 import {reactive,ref, watch} from 'vue'
 import axios from 'axios'
 import { useRoute } from 'vue-router'
-import PostCardVue from '../components/PostCard.vue'
+import PostCard from '../components/PostCard.vue';
 
 const baseUrl = ref(localStorage.getItem('baseUrl'))
 
@@ -15,18 +15,16 @@ async function filterPost(){
     const categoryId = route.query.categories
     const url = `${baseUrl.value}/posts?categories=${categoryId}`
     const res = await axios.get(url)
-    Object.assign(posts.value,res.data)
+    posts.value = res.data
     isLoading.value = false
-    console.log(posts.value)
-
   } catch (error) {
     console.log(error)
   }
 }
 
 
-// filterPost()
-// watch(() => route.query.categories, filterPost)
+filterPost()
+watch(() => route.query.categories, filterPost)
 </script>
 
 <template>
